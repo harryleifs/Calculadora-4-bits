@@ -13,17 +13,13 @@ ARCHITECTURE estructural OF conversor_bin_bcd IS
     COMPONENT sumar_3
         PORT (ent : IN STD_LOGIC_VECTOR(3 DOWNTO 0); sal : OUT STD_LOGIC_VECTOR(3 DOWNTO 0));
     END COMPONENT;
-
-    -- Señales para las salidas de los bloques
+    
     SIGNAL c1, c2, c3, c4, c5 : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL d1, d2 : STD_LOGIC_VECTOR(3 DOWNTO 0);
-
-    -- Señales intermedias para las entradas (Solución al error)
     SIGNAL ent_u1, ent_u2, ent_u3, ent_u4, ent_u5 : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL ent_d1, ent_d2 : STD_LOGIC_VECTOR(3 DOWNTO 0);
 
 BEGIN
-    -- 1. Hacemos las concatenaciones afuera del PORT MAP
     ent_u1 <= '0' & bin_in(7 DOWNTO 5);
     ent_u2 <= c1(2 DOWNTO 0) & bin_in(4);
     ent_u3 <= c2(2 DOWNTO 0) & bin_in(3);
@@ -33,7 +29,6 @@ BEGIN
     ent_d1 <= '0' & c1(3) & c2(3) & c3(3);
     ent_d2 <= d1(2 DOWNTO 0) & c4(3);
 
-    -- 2. Conectamos las señales limpias a los componentes
     U1: sumar_3 PORT MAP (ent => ent_u1, sal => c1);
     U2: sumar_3 PORT MAP (ent => ent_u2, sal => c2);
     U3: sumar_3 PORT MAP (ent => ent_u3, sal => c3);
@@ -43,7 +38,6 @@ BEGIN
     D_1: sumar_3 PORT MAP (ent => ent_d1, sal => d1);
     D_2: sumar_3 PORT MAP (ent => ent_d2, sal => d2);
     
-    -- Salidas finales
     bcd_unid <= c5(2 DOWNTO 0) & bin_in(0);
     bcd_dec  <= d2(2 DOWNTO 0) & c5(3);
     
