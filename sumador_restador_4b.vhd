@@ -22,15 +22,13 @@ ARCHITECTURE estructural OF sumador_restador_4b IS
     SIGNAL bx : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL c  : STD_LOGIC_VECTOR(4 DOWNTO 0);
 BEGIN
-    -- Compuertas XOR para invertir 'b' si op='1' (resta)
     bx(0) <= b(0) XOR op;
     bx(1) <= b(1) XOR op;
     bx(2) <= b(2) XOR op;
     bx(3) <= b(3) XOR op;
 
-    c(0) <= op; -- El acarreo inicial es 1 para suma en complemento a 2
+    c(0) <= op; 
 
-    -- Instanciación de los 4 sumadores completos
     fa0: sumador_completo PORT MAP (a(0), bx(0), c(0), suma(0), c(1));
     fa1: sumador_completo PORT MAP (a(1), bx(1), c(1), suma(1), c(2));
     fa2: sumador_completo PORT MAP (a(2), bx(2), c(2), suma(2), c(3));
