@@ -72,15 +72,13 @@ ARCHITECTURE estructural OF calculadora IS
     SIGNAL res_suma_ext     : STD_LOGIC_VECTOR(7 DOWNTO 0); 
     SIGNAL res_resta_ext    : STD_LOGIC_VECTOR(7 DOWNTO 0);
     SIGNAL res_div_ext      : STD_LOGIC_VECTOR(7 DOWNTO 0);
-    
     SIGNAL resultado_bin    : STD_LOGIC_VECTOR(7 DOWNTO 0);
     SIGNAL bcd_unidades     : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL bcd_decenas      : STD_LOGIC_VECTOR(3 DOWNTO 0);
-    
     SIGNAL modo_prioridad   : STD_LOGIC_VECTOR(1 DOWNTO 0);
     SIGNAL bandera_error    : STD_LOGIC;
     SIGNAL acarreo_out      : STD_LOGIC;
-	 SIGNAL modo_hex_int : STD_LOGIC;
+	SIGNAL modo_hex_int : STD_LOGIC;
     
 BEGIN
 
