@@ -12,7 +12,7 @@ ENTITY sumador_restador_4b IS
 END sumador_restador_4b;
 
 ARCHITECTURE estructural OF sumador_restador_4b IS
-    COMPONENT sumador_completo
+    COMPONENT full_adder
         PORT (
             a, b, cin : IN STD_LOGIC;
             s, cout   : OUT STD_LOGIC
@@ -29,10 +29,10 @@ BEGIN
 
     c(0) <= op; 
 
-    fa0: sumador_completo PORT MAP (a(0), bx(0), c(0), suma(0), c(1));
-    fa1: sumador_completo PORT MAP (a(1), bx(1), c(1), suma(1), c(2));
-    fa2: sumador_completo PORT MAP (a(2), bx(2), c(2), suma(2), c(3));
-    fa3: sumador_completo PORT MAP (a(3), bx(3), c(3), suma(3), c(4));
+    fa0: full_adder PORT MAP (a(0), bx(0), c(0), suma(0), c(1));
+    fa1: full_adder PORT MAP (a(1), bx(1), c(1), suma(1), c(2));
+    fa2: full_adder PORT MAP (a(2), bx(2), c(2), suma(2), c(3));
+    fa3: full_adder PORT MAP (a(3), bx(3), c(3), suma(3), c(4));
 
     cout <= c(4);
 END estructural;
