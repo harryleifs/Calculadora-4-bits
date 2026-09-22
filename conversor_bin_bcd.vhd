@@ -42,3 +42,5 @@ BEGIN
     bcd_dec  <= d2(2 DOWNTO 0) & c5(3);
     
 END estructural;
+    
+END estructural;
