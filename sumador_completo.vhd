@@ -1,15 +1,15 @@
 LIBRARY IEEE;
 USE ieee.std_logic_1164.all;
 
-ENTITY sumador_completo IS
+ENTITY full_adder IS
     PORT (
         a, b, cin : IN STD_LOGIC;
         s, cout   : OUT STD_LOGIC
     );
-END sumador_completo;
+END full_adder;
 
-ARCHITECTURE combinacional OF sumador_completo IS
+ARCHITECTURE combinacional OF full_adder IS
 BEGIN
     s <= a XOR b XOR cin;
     cout <= (a AND b) OR (cin AND (a XOR b));
-END combinacional;
+END combinacional; 
